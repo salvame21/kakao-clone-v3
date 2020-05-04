@@ -1,0 +1,221 @@
+.header-wrapper {
+  position: fixed;
+  z-index: 2;
+  top: 0px;
+  width: 100%;
+  background-color: white;
+  padding: 5px 20px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 16px -8px,
+    rgba(0, 0, 0, 0.024) 0px -6px 16px -6px;
+}
+.chats-body {
+  padding: 10px 0px;
+  padding-top: 140px;
+  min-height: 100vh;
+  background-image: url("../images/chat_bg.jpg");
+}
+
+/* .chat-screen {
+  padding-top: 30px;
+  border-top: 1px solid red;
+} */
+
+.chat-screen .chat__messages {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.chat-screen .chat__timestamp {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: antiquewhite;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 16px -8px,
+    rgba(97, 60, 60, 0.024) 0px -6px 16px -6px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.message {
+  display: flex;
+
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.incoming-message .message__bubble,
+.sent-message .message__bubble {
+  display: block;
+  font-weight: 600;
+  padding: 10px 20px;
+  color: white;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 8px 16px -8px,
+    rgba(0, 0, 0, 0.024) 0px -6px 16px -6px;
+}
+
+.incoming-message .message__bubble {
+  border-bottom-left-radius: 0px;
+  background-image: linear-gradient(to right, #40e0d0, #ff8c00, #ff0080);
+}
+
+.sent-message .message__bubble {
+  border-bottom-right-radius: 0px;
+  background-image: linear-gradient(to left, #7f7fd5, #86a8e7, #91eae4);
+}
+
+.incoming-message .message__author {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.incoming-message.message img {
+  width: 50px;
+  border-radius: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px,
+    rgba(0, 0, 0, 0.024) 0px -6px 16px -6px;
+}
+
+.chat-screen .incoming-message .message__content {
+  margin-left: 15px;
+}
+
+.sent-message {
+  align-self: flex-end;
+}
+
+/* .message {
+  display: flex;
+} */
+
+.chat__write--container {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.chat__icon-left {
+  position: absolute;
+  left: 10px;
+}
+
+.chat__icon-right {
+  position: absolute;
+  right: 10px;
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
+  50% {
+    box-shadow: 0 30px 60px -60px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
+  100% {
+    box-shadow: 0 30px 60px -100px rgba(50, 50, 93, 0.25),
+      0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+  }
+}
+.chat__write:focus {
+  animation: float 3s linear infinite forwards;
+}
+
+.chat__write {
+  margin: 0 auto;
+  bottom: 0px;
+  width: 100%;
+  padding: 20px 60px;
+  border: none;
+  font-size: 14px;
+  transition: width 1s ease-in-out, border-shadow 1s ease-in-out,
+    border-radius 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.chat__write:focus {
+  outline: none;
+  width: 80%;
+  transform: translateY(-100px);
+  border-radius: 40px;
+  box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+}
+.chat__icon {
+  font-size: 18px;
+  transition: opacity 3s ease-in-out;
+}
+.chat__write i {
+  font-size: 50px;
+}
+
+.chat__write:focus ~ .chat__icon {
+  opacity: 0;
+}
+/* linear랑 ease-in이랑 ease-in-out 뭔차이?? 똑같은거 같은데 */
+@keyframes sentAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.sent-message {
+  animation: sentAnimation 0.5s ease-in forwards;
+  align-self: flex-end;
+}
+
+@keyframes incomingAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.incoming-message {
+  align-self: flex-start;
+  animation: incomingAnimation 0.5s ease-in forwards;
+}
+
+.chat__write-column:nth-child(2) {
+  width: 80%;
+}
+
+@keyframes spin {
+  from {
+    transform: none;
+  }
+  to {
+    transform: rotateY(1turn);
+  }
+}
+
+.incoming-message img {
+  animation: spin 1.5s linear infinite;
+}

@@ -1,0 +1,37 @@
+.settings__section .settings__list.list1 {
+  border-top: 1px solid #f7f7f7;
+  padding-top: 30px;
+}
+
+.settings__section .settings__list.list2 {
+  border-top: 1px solid #f7f7f7;
+  margin-top: 30px;
+  padding-top: 30px;
+}
+.settings__section .settings__list.list3 {
+  border-top: 1px solid #f7f7f7;
+  margin-top: 30px;
+  padding-top: 30px;
+}
+
+.settings__section i {
+  font-size: 25px;
+}
+
+.settings__section .settings__title {
+  font-size: 25px;
+  position: absolute;
+  left: 60px;
+}
+
+.settings__section .settings__setting {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+.settings__section .settings__setting:last-child {
+  margin-bottom: 0px;
+}
